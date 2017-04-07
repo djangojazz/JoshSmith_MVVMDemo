@@ -1,0 +1,118 @@
+﻿<UserControl 
+  x:Class="DemoApp.View.AllCustomersView"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+  >
+  <UserControl.Resources>
+    <CollectionViewSource
+      x:Key="CustomerGroups" 
+      Source="{Binding Path=AllCustomers}"
+      >
+      <CollectionViewSource.GroupDescriptions>
+        <PropertyGroupDescription PropertyName="IsCompany" />
+      </CollectionViewSource.GroupDescriptions>
+      <CollectionViewSource.SortDescriptions>
+        <!-- 
+        Sort descending by IsCompany so that the 'True' values appear first,
+        which means that companies will always be listed before people.
+        -->
+        <scm:SortDescription PropertyName="IsCompany" Direction="Descending" />
+        <scm:SortDescription PropertyName="DisplayName" Direction="Ascending" />
+      </CollectionViewSource.SortDescriptions>
+    </CollectionViewSource>
+
+    <GroupStyle x:Key="CustomerGroupStyle">
+      <GroupStyle.HeaderTemplate>
+        <DataTemplate>
+          <TextBlock 
+            x:Name="txt" 
+            Background="{StaticResource Brush_HeaderBackground}"
+            FontWeight="Bold"
+            Foreground="White"
+            Margin="1"
+            Padding="4,2,0,2"
+            Text="People" 
+            />
+          <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding Path=Name}" Value="True">
+              <Setter TargetName="txt" Property="Text" Value="Companies" />
+            </DataTrigger>
+          </DataTemplate.Triggers>
+        </DataTemplate>
+      </GroupStyle.HeaderTemplate>
+    </GroupStyle>
+
+    <Style x:Key="CustomerItemStyle" TargetType="{x:Type ListViewItem}">
+      <!-- 
+      Stretch the content of each cell so that we can 
+      right-align text in the Total Sales column. 
+      -->
+      <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+      <!-- 
+      Bind the IsSelected property of a ListViewItem to the 
+      IsSelected property of a CustomerViewModel object.
+      -->
+      <Setter Property="IsSelected" Value="{Binding Path=IsSelected, Mode=TwoWay}" />
+      <Style.Triggers>
+        <MultiTrigger>
+          <MultiTrigger.Conditions>
+            <Condition Property="ItemsControl.AlternationIndex" Value="1" />
+            <Condition Property="IsSelected" Value="False" />
+            <Condition Property="IsMouseOver" Value="False" />
+          </MultiTrigger.Conditions>
+          <Setter Property="Background" Value="#EEEEEEEE" />
+        </MultiTrigger>
+      </Style.Triggers>
+    </Style>
+  </UserControl.Resources>
+
+  <DockPanel>
+    <Grid DockPanel.Dock="Bottom" Margin="0,2,4,2">
+      <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Center">
+        <TextBlock Text="Total selected sales: " />
+        <ContentPresenter
+          Content="{Binding Path=TotalSelectedSales}"
+          ContentStringFormat="c"
+          />
+      </StackPanel>
+    </Grid>
+
+    <ListView 
+      AlternationCount="2" 
+      DataContext="{StaticResource CustomerGroups}" 
+      ItemContainerStyle="{StaticResource CustomerItemStyle}"
+      ItemsSource="{Binding}"
+      >
+      <ListView.GroupStyle>
+        <StaticResourceExtension 
+          ResourceKey="CustomerGroupStyle" 
+          />
+      </ListView.GroupStyle>
+
+      <ListView.View>
+        <GridView>
+          <GridViewColumn 
+            Header="Name" 
+            DisplayMemberBinding="{Binding Path=DisplayName}" 
+            />
+          <GridViewColumn 
+            Header="E-mail" 
+            DisplayMemberBinding="{Binding Path=Email}" 
+            />
+          <GridViewColumn Header="Total Sales">
+            <GridViewColumn.CellTemplate>
+              <DataTemplate>
+                <ContentPresenter 
+                  Content="{Binding Path=TotalSales}" 
+                  ContentStringFormat="c"
+                  HorizontalAlignment="Right"
+                  />
+              </DataTemplate>
+            </GridViewColumn.CellTemplate>
+          </GridViewColumn>
+        </GridView>
+      </ListView.View>
+    </ListView>
+  </DockPanel>
+</UserControl>

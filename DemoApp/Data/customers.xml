@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<customers>
+  <customer lastName="Smith"      firstName="Josh"    isCompany="false" email="josh@contoso.com"    totalSales="32132.92" />
+  <customer lastName="Bujak"      firstName="Greg"    isCompany="false" email="greg@contoso.com"    totalSales="9848.06"  />
+  <customer lastName="Crafton"    firstName="Jim"     isCompany="false" email="crafton@contoso.com" totalSales="6132.34"  />
+  <customer lastName="Nolan"      firstName="Jordan"  isCompany="false" email="jordan@contoso.com"  totalSales="12993.01" />
+  <customer lastName="Hinkson"    firstName="Grant"   isCompany="false" email="hinkson@contoso.com" totalSales="4322.81"  />
+  <customer lastName="Shifflett"  firstName="Karl"    isCompany="false" email="kdawg@contoso.com"   totalSales="8821.87"  />
+  <customer lastName="Walker"     firstName="Wilfred" isCompany="false" email="will@contoso.com"    totalSales="3509.37"  />
+  <customer lastName="McCort"     firstName="Denise"  isCompany="false" email="denise@contoso.com"  totalSales="2222.05"  />
+
+  <customer lastName="" firstName="Alfreds Futterkiste" isCompany="true" email="maria@contoso.com"  totalSales="8832.16"   />
+  <customer lastName="" firstName="Eastern Connection"  isCompany="true" email="ann@contoso.com"    totalSales="12831.73"  />
+  <customer lastName="" firstName="Hanari Carnes"       isCompany="true" email="alex@contoso.com"   totalSales="473764.02" />
+  <customer lastName="" firstName="Königlich Essen"     isCompany="true" email="philip@contoso.com" totalSales="28112.50"  />
+</customers>
