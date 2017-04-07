@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoshSmith_MVVMDemo", "JoshSmith_MVVMDemo\JoshSmith_MVVMDemo.csproj", "{59E5A992-8D68-4355-B8D6-CF4B707F8216}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoApp", "..\..\TestCode\MvvmDemoApp_JoshSmith\DemoApp\DemoApp.csproj", "{26CFD5D4-94BD-40F3-BABA-E5FC7B6DB623}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{59E5A992-8D68-4355-B8D6-CF4B707F8216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{59E5A992-8D68-4355-B8D6-CF4B707F8216}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{59E5A992-8D68-4355-B8D6-CF4B707F8216}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{59E5A992-8D68-4355-B8D6-CF4B707F8216}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26CFD5D4-94BD-40F3-BABA-E5FC7B6DB623}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26CFD5D4-94BD-40F3-BABA-E5FC7B6DB623}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26CFD5D4-94BD-40F3-BABA-E5FC7B6DB623}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26CFD5D4-94BD-40F3-BABA-E5FC7B6DB623}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
