@@ -22,6 +22,7 @@ namespace JoshSmith_MVVMDemo
   {
     public MainWindow()
     {
+      var t = "Test";
       InitializeComponent();
     }
   }
